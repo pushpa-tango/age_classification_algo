@@ -1,0 +1,6 @@
+tensorflow==2.4.0
+opencv==4.5.4
+numpy==1.19.5
+pandas==1.3.4
+skimage==0.18.3
+PIL==8.4.0
