@@ -368,7 +368,11 @@ class EmoAgeGenDetector:
                     msg_pack = consumer.poll(max_records=1)
                     consumer.commit()
                 except Exception:
-
+                    kafka_fr_topic = self.get_secrets_value('kafka_fr_topic')
+                    kafka_sasl_plain_username = self.get_secrets_value('kafka_sasl_plain_username')
+                    kafka_sasl_plain_password = self.get_secrets_value('kafka_sasl_plain_password')
+                    kafka_age_gender_group_id = self.get_secrets_value('kafka_age_gender_group_id')
+                    consumer = self.consumer_message(kafka_sasl_plain_username, kafka_age_gender_group_id,kafka_sasl_plain_password)
                     consumer.subscribe(['fr_prod'])
                     msg_pack = consumer.poll(max_records=1)
 
